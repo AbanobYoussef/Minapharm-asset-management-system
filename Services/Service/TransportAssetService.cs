@@ -51,6 +51,5 @@ namespace Services.Service
             return _mapper.Map<TransportAssetDTO>(newempDTO);
         }
     }
-    {
     }
-}
+
