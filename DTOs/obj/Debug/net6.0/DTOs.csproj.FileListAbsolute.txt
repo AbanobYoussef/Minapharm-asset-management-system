@@ -1,0 +1,12 @@
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\bin\Debug\net6.0\DTOs.deps.json
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\bin\Debug\net6.0\DTOs.dll
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\bin\Debug\net6.0\DTOs.pdb
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.csproj.AssemblyReference.cache
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfoInputs.cache
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfo.cs
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.csproj.CoreCompileInputs.cache
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.dll
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\refint\DTOs.dll
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.pdb
+D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\ref\DTOs.dll
