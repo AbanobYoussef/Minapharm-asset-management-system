@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DTOs;
 using Entities.Entities;
+using Entities.Hrlpers;
 using Repositories.IGenericRepository;
 using Services.IService;
 using System;
@@ -21,34 +22,81 @@ namespace Services.Service
             _employee=employee;
             _mapper=mapper;
         }
-        public EmployeeDTO Delete(object id)
+        public ResultModel<EmployeeDTO> Delete(object id)
         {
-          return  _mapper.Map<EmployeeDTO>(_employee.Entity.Delete(id));
+            var reopResult = _employee.Entity.Delete(id);
+            var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
+
+
+            ResultModel<EmployeeDTO> result = new ResultModel<EmployeeDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
         }
 
-        public IEnumerable<EmployeeDTO> GetALL()
+        public ResultModel<EmployeeDTO> GetALL()
         {
-           var list= _employee.Entity.GetALL();
-           return _mapper.Map<IEnumerable<EmployeeDTO>>(list);
+
+            var reopResult = _employee.Entity.GetALL(); ;
+            var DTO = _mapper.Map<IEnumerable<EmployeeDTO>>(reopResult.ResultList);
+            
+            ResultModel<EmployeeDTO> result = new ResultModel<EmployeeDTO>()
+            {
+                Message = reopResult.Message,
+                Result = null,
+                ResultList = DTO
+            };
+            return result;
         }
 
-        public EmployeeDTO GetById(object id)
+        public ResultModel<EmployeeDTO> GetById(object id)
         {
-            return _mapper.Map<EmployeeDTO>(_employee.Entity.GetById(id));
+
+            var reopResult = _employee.Entity.GetById(id);
+            var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
+
+            ResultModel<EmployeeDTO> result = new ResultModel<EmployeeDTO>()
+            {
+                Message = reopResult.Message,
+                Result =  DTO,
+                ResultList = null
+            };
+            return result;
         }
 
-        public EmployeeDTO Insert(EmployeeDTO entity)
+        public ResultModel<EmployeeDTO> Insert(EmployeeDTO entity)
         {
           var newemp=  _mapper.Map<Employee>(entity);
-            var newempDTO= _employee.Entity.Insert(newemp);
-            return _mapper.Map<EmployeeDTO>(newempDTO);
+            var reopResult = _employee.Entity.Insert(newemp);
+            var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
+
+            ResultModel<EmployeeDTO> result = new ResultModel<EmployeeDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
         }
 
-        public EmployeeDTO Update(EmployeeDTO entity)
+        public ResultModel<EmployeeDTO> Update(EmployeeDTO entity)
         {
             var newemp = _mapper.Map<Employee>(entity);
-            var newempDTO = _employee.Entity.Update(newemp);
-            return _mapper.Map<EmployeeDTO>(newempDTO);
+
+            var reopResult = _employee.Entity.Update(newemp);
+            var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
+
+            ResultModel<EmployeeDTO> result = new ResultModel<EmployeeDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
+        
         }
     }
 }
