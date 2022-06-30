@@ -1,4 +1,5 @@
 ﻿using Entities.Context;
+using Entities.Hrlpers;
 using Microsoft.EntityFrameworkCore;
 using Repositories.IGenericRepository;
 using System;
@@ -21,34 +22,99 @@ namespace Repositories.Respository
         }
 
 
-        public T Delete(object id)
+        public ResultModel<T> Delete(object id)
         {
-            T existing = GetById(id);
-            table.Remove(existing);
-            return existing;
+            ResultModel<T> result = new ResultModel<T>();
+            try
+            {
+                result.Result = GetById(id).Result;
+                result.Message = "Entity deleted Successfully";
+            }
+            catch (Exception e)
+            {
+                result.Result = null;
+                result.Message = e.Message;
+            }
+            return result;
         }
 
-        public IEnumerable<T> GetALL()
+        public ResultModel<T> GetALL()
         {
-            return table.ToList();
+
+            ResultModel<T> result = new ResultModel<T>();
+            try
+            {
+                result.ResultList = table.ToList();
+                result.Result  = null;
+
+                result.Message = "Data Retrived Successfully";
+            }
+            catch (Exception e)
+            {
+                result.Result = null;
+                result.ResultList = null;
+                result.Message = e.Message;
+            }
+            return result;
         }
 
-        public T GetById(object id)
+        public ResultModel<T> GetById(object id)
         {
-            return table.Find(id);
+            ResultModel<T> result = new ResultModel<T>();
+            try
+            {
+                result.Result  = table.Find(id);
+                result.ResultList = null;
+
+                result.Message = "Data Retrived Successfully";
+            }
+            catch (Exception e)
+            {
+                result.Result = null;
+                result.ResultList = null;
+                result.Message = e.Message;
+            }
+            return result;
         }
 
-        public T Insert(T entity)
+        public ResultModel<T> Insert(T entity)
         {
-            table.Add(entity);
-            return entity;
+            ResultModel<T> result = new ResultModel<T>();
+            try
+            {
+                table.Add(entity);
+                result.Result = entity;
+                result.ResultList = null;
+                result.Message = "Entity Added Successfully";
+            }
+            catch (Exception e)
+            {
+                result.Result = null;
+                result.ResultList = null;
+                result.Message = e.Message;
+            }
+            return result;
+            
         }
 
-        public T Update(T entity)
+        public ResultModel<T> Update(T entity)
         {
-            table.Attach(entity);
-            _context.Entry(entity).State = EntityState.Modified;
-            return entity;
+            ResultModel<T> result = new ResultModel<T>();
+            try
+            {
+                table.Attach(entity);
+                _context.Entry(entity).State = EntityState.Modified;
+                result.Result = entity;
+                result.ResultList = null;
+                result.Message = "Entity Udated Successfully";
+            }
+            catch (Exception e)
+            {
+                result.Result = null;
+                result.ResultList = null;
+                result.Message = e.Message;
+            }
+            return result;
         }
     }
 }

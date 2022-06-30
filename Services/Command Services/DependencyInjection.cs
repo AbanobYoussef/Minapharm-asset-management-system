@@ -19,11 +19,10 @@ namespace Services.Command_Services
             //add auto maper 
             services.AddAutoMapper(typeof(MappingProfile));
 
-            
 
             services.AddScoped<IGenericService<EmployeeDTO>, EmployeeService>();
             services.AddScoped<IGenericService<DeviceAssetDTO>, DeviceAssetService>();
-            services.AddScoped<IGenericService<TransportAssetDTO>, EmployeeService>();
+            services.AddScoped<IGenericService<TransportAssetDTO>, TransportAssetService>();
             return services;
         }
     }

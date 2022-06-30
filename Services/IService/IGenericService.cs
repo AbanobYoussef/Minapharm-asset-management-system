@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Hrlpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,12 @@ namespace Services.IService
 {
     public interface IGenericService<T> where T : class
     {
-        IEnumerable<T> GetALL();
+        ResultModel<T> GetALL();
 
-        T GetById(object id);
+        ResultModel<T> GetById(object id);
 
-        T Insert(T entity);
-        T Update(T entity);
-        T Delete(object id);
+        ResultModel<T> Insert(T entity);
+        ResultModel<T> Update(T entity);
+        ResultModel<T> Delete(object id);
     }
 }

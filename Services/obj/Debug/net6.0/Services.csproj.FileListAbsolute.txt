@@ -10,3 +10,10 @@ D:\POS\New folder\Minapharm-asset-management-system\Services\obj\Debug\net6.0\Se
 D:\POS\New folder\Minapharm-asset-management-system\Services\obj\Debug\net6.0\refint\Services.dll
 D:\POS\New folder\Minapharm-asset-management-system\Services\obj\Debug\net6.0\Services.pdb
 D:\POS\New folder\Minapharm-asset-management-system\Services\obj\Debug\net6.0\ref\Services.dll
+D:\POS\New folder\Minapharm-asset-management-system\Services\bin\Debug\net6.0\DTOs.dll
+D:\POS\New folder\Minapharm-asset-management-system\Services\bin\Debug\net6.0\Entities.dll
+D:\POS\New folder\Minapharm-asset-management-system\Services\bin\Debug\net6.0\Repositories.dll
+D:\POS\New folder\Minapharm-asset-management-system\Services\bin\Debug\net6.0\DTOs.pdb
+D:\POS\New folder\Minapharm-asset-management-system\Services\bin\Debug\net6.0\Repositories.pdb
+D:\POS\New folder\Minapharm-asset-management-system\Services\bin\Debug\net6.0\Entities.pdb
+D:\POS\New folder\Minapharm-asset-management-system\Services\obj\Debug\net6.0\Services.csproj.CopyComplete

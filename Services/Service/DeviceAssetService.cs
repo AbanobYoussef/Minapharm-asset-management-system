@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DTOs;
 using Entities.Entities;
+using Entities.Hrlpers;
 using Repositories.IGenericRepository;
 using Services.IService;
 using System;
@@ -21,34 +22,86 @@ namespace Services.Service
             _deviceAsset = deviceAsset;
             _mapper = mapper;
         }
-        public DeviceAssetDTO Delete(object id)
+        public ResultModel<DeviceAssetDTO> Delete(object id)
         {
-            return _mapper.Map<DeviceAssetDTO>(_deviceAsset.Entity.Delete(id));
+            var reopResult = _deviceAsset.Entity.Delete(id);
+            var DTO= _mapper.Map<DeviceAssetDTO>(reopResult.Result);
+
+
+            ResultModel<DeviceAssetDTO> result = new ResultModel<DeviceAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
         }
 
-        public IEnumerable<DeviceAssetDTO> GetALL()
+        public ResultModel<DeviceAssetDTO> GetALL()
         {
-            var list = _deviceAsset.Entity.GetALL();
-            return _mapper.Map<IEnumerable<DeviceAssetDTO>>(list);
+            var reopResult = _deviceAsset.Entity.GetALL();
+
+            var DTOList = _mapper.Map<List<DeviceAssetDTO>>(reopResult.ResultList);
+
+
+            ResultModel<DeviceAssetDTO> result = new ResultModel<DeviceAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = null,
+                ResultList = DTOList
+            };
+
+            return result;
         }
 
-        public DeviceAssetDTO GetById(object id)
+        public ResultModel<DeviceAssetDTO> GetById(object id)
         {
-            return _mapper.Map<DeviceAssetDTO>(_deviceAsset.Entity.GetById(id));
+            var reopResult = _deviceAsset.Entity.GetById(id) ;
+
+            var DTO  = _mapper.Map<DeviceAssetDTO>(reopResult.Result);
+
+            ResultModel<DeviceAssetDTO> result = new ResultModel<DeviceAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+
+            return result;
         }
 
-        public DeviceAssetDTO Insert(DeviceAssetDTO entity)
+        public ResultModel<DeviceAssetDTO> Insert(DeviceAssetDTO entity)
         {
             var newemp = _mapper.Map<DeviceAsset>(entity);
-            var newempDTO = _deviceAsset.Entity.Insert(newemp);
-            return _mapper.Map<DeviceAssetDTO>(newempDTO);
+            var reopResult = _deviceAsset.Entity.Insert(newemp);
+
+            var DTO = _mapper.Map<DeviceAssetDTO>(reopResult.Result);
+
+            ResultModel<DeviceAssetDTO> result = new ResultModel<DeviceAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+
+            return result;
         }
 
-        public DeviceAssetDTO Update(DeviceAssetDTO entity)
+        public ResultModel<DeviceAssetDTO> Update(DeviceAssetDTO entity)
         {
             var newemp = _mapper.Map<DeviceAsset>(entity);
-            var newempDTO = _deviceAsset.Entity.Update(newemp);
-            return _mapper.Map<DeviceAssetDTO>(newempDTO);
+            var reopResult = _deviceAsset.Entity.Update(newemp);
+
+            var DTO = _mapper.Map<DeviceAssetDTO>(reopResult.Result);
+
+            ResultModel<DeviceAssetDTO> result = new ResultModel<DeviceAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+
+            return result;
         }
     }
     

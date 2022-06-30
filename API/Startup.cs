@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using Repositories.Command;
+using Services.Command_Services;
 
 namespace API
 {
@@ -35,12 +36,17 @@ namespace API
             //Configure Swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HR", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Asset Managment", Version = "v1" });
             });
 
             services.AddSwaggerGen();
 
            services.AddRepositories(this.Configuration);
+           services.AddServices();
+
+
+            services.AddMvcCore()
+                    .AddApiExplorer();
 
 
 
@@ -70,8 +76,6 @@ namespace API
             });
 
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
             app.UseCors(
             options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
            );
