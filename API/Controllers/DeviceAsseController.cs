@@ -1,4 +1,5 @@
 ﻿using DTOs;
+using Entities.Hrlpers;
 using Microsoft.AspNetCore.Mvc;
 using Services.IService;
 
@@ -17,35 +18,35 @@ namespace API.Controllers
         }
         // GET: api/<deviceAsseController>
         [HttpGet]
-        public IEnumerable<DeviceAssetDTO> Get()
+        public ResultModel<DeviceAssetDTO> Get()
         {
             return _deviceAsseService.GetALL();
         }
 
         // GET api/<deviceAsseController>/5
         [HttpGet("{id}")]
-        public DeviceAssetDTO Get(int id)
+        public ResultModel<DeviceAssetDTO> Get(int id)
         {
             return _deviceAsseService.GetById(id);
         }
 
         // POST api/<deviceAsseController>
         [HttpPost]
-        public DeviceAssetDTO Post([FromBody] DeviceAssetDTO deviceAsset)
+        public ResultModel<DeviceAssetDTO> Post([FromBody] DeviceAssetDTO deviceAsset)
         {
             return _deviceAsseService.Insert(deviceAsset);
         }
 
         // PUT api/<deviceAsseController>/5
         [HttpPut]
-        public DeviceAssetDTO Put([FromBody] DeviceAssetDTO deviceAsset)
+        public ResultModel<DeviceAssetDTO> Put([FromBody] DeviceAssetDTO deviceAsset)
         {
             return _deviceAsseService.Update(deviceAsset);
         }
 
         // DELETE api/<deviceAsseController>/5
         [HttpDelete("{id}")]
-        public DeviceAssetDTO Delete(int id)
+        public ResultModel<DeviceAssetDTO> Delete(int id)
         {
             return _deviceAsseService.Delete(id);
         }

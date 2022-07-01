@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\POS\\New folder\\Minapharm-asset-management-system\\DTOs\\DTOs.csproj": {}
+    "D:\\Floward Task\\Minapharm asset management system\\DTOs\\DTOs.csproj": {}
   },
   "projects": {
-    "D:\\POS\\New folder\\Minapharm-asset-management-system\\DTOs\\DTOs.csproj": {
+    "D:\\Floward Task\\Minapharm asset management system\\DTOs\\DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\POS\\New folder\\Minapharm-asset-management-system\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "D:\\Floward Task\\Minapharm asset management system\\DTOs\\DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\DTOs\\DTOs.csproj",
-        "packagesPath": "C:\\Users\\Abanob\\.nuget\\packages\\",
-        "outputPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\DTOs\\obj\\",
+        "projectPath": "D:\\Floward Task\\Minapharm asset management system\\DTOs\\DTOs.csproj",
+        "packagesPath": "C:\\Users\\El_Amir Tech\\.nuget\\packages\\",
+        "outputPath": "D:\\Floward Task\\Minapharm asset management system\\DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Abanob\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\El_Amir Tech\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -32,8 +34,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\POS\\New folder\\Minapharm-asset-management-system\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Entities\\Entities.csproj"
+              "D:\\Floward Task\\Minapharm asset management system\\Entities\\Entities.csproj": {
+                "projectPath": "D:\\Floward Task\\Minapharm asset management system\\Entities\\Entities.csproj"
               }
             }
           }
@@ -68,26 +70,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\POS\\New folder\\Minapharm-asset-management-system\\Entities\\Entities.csproj": {
+    "D:\\Floward Task\\Minapharm asset management system\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\Floward Task\\Minapharm asset management system\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\Abanob\\.nuget\\packages\\",
-        "outputPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Entities\\obj\\",
+        "projectPath": "D:\\Floward Task\\Minapharm asset management system\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\El_Amir Tech\\.nuget\\packages\\",
+        "outputPath": "D:\\Floward Task\\Minapharm asset management system\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Abanob\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\El_Amir Tech\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -142,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

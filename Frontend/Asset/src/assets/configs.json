@@ -1,0 +1,5 @@
+{
+    "production": "true",
+    "baseUrl": "https://localhost:7140/",
+    "recaptchaSiteKey": "TEST SITE KEY"
+}

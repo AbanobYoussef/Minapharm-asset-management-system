@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DTOs;
 using Entities.Entities;
+using Entities.Hrlpers;
 using Repositories.IGenericRepository;
 using Services.IService;
 using System;
@@ -21,34 +22,86 @@ namespace Services.Service
             _transportAsset = transportAsset;
             _mapper = mapper;
         }
-        public TransportAssetDTO Delete(object id)
+        public ResultModel<TransportAssetDTO> Delete(object id)
         {
-            return _mapper.Map<TransportAssetDTO>(_transportAsset.Entity.Delete(id));
+            var reopResult = _transportAsset.Entity.Delete(id);
+            var DTO = _mapper.Map<TransportAssetDTO>(reopResult.Result);
+
+
+            ResultModel<TransportAssetDTO> result = new ResultModel<TransportAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
         }
 
-        public IEnumerable<TransportAssetDTO> GetALL()
+        public ResultModel<TransportAssetDTO> GetALL()
         {
-            var list = _transportAsset.Entity.GetALL();
-            return _mapper.Map<IEnumerable<TransportAssetDTO>>(list);
+
+            var reopResult = _transportAsset.Entity.GetALL();
+            var DTO = _mapper.Map<IEnumerable<TransportAssetDTO>>(reopResult.ResultList);
+
+
+            ResultModel<TransportAssetDTO> result = new ResultModel<TransportAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = null,
+                ResultList = DTO
+            };
+            return result;
         }
 
-        public TransportAssetDTO GetById(object id)
+        public ResultModel<TransportAssetDTO> GetById(object id)
         {
-            return _mapper.Map<TransportAssetDTO>(_transportAsset.Entity.GetById(id));
+            var reopResult = _transportAsset.Entity.GetById(id);
+            var DTO = _mapper.Map<TransportAssetDTO>(reopResult.Result);
+
+
+            ResultModel<TransportAssetDTO> result = new ResultModel<TransportAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
         }
 
-        public TransportAssetDTO Insert(TransportAssetDTO entity)
+        public ResultModel<TransportAssetDTO> Insert(TransportAssetDTO entity)
+        {
+
+            entity.Id = Guid.NewGuid();
+            var newemp = _mapper.Map<TransportAsset>(entity);
+
+            var reopResult = _transportAsset.Entity.Insert(newemp);
+            var DTO = _mapper.Map<TransportAssetDTO>(reopResult.Result);
+
+
+            ResultModel<TransportAssetDTO> result = new ResultModel<TransportAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
+        }
+
+        public ResultModel<TransportAssetDTO> Update(TransportAssetDTO entity)
         {
             var newemp = _mapper.Map<TransportAsset>(entity);
-            var newempDTO = _transportAsset.Entity.Insert(newemp);
-            return _mapper.Map<TransportAssetDTO>(newempDTO);
-        }
 
-        public TransportAssetDTO Update(TransportAssetDTO entity)
-        {
-            var newemp = _mapper.Map<TransportAsset>(entity);
-            var newempDTO = _transportAsset.Entity.Update(newemp);
-            return _mapper.Map<TransportAssetDTO>(newempDTO);
+            var reopResult = _transportAsset.Entity.Update(newemp);
+            var DTO = _mapper.Map<TransportAssetDTO>(reopResult.Result);
+
+
+            ResultModel<TransportAssetDTO> result = new ResultModel<TransportAssetDTO>()
+            {
+                Message = reopResult.Message,
+                Result = DTO,
+                ResultList = null
+            };
+            return result;
         }
     }
     }

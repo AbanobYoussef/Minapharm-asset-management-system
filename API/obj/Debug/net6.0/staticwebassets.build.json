@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "61ovrgAzWVZeQjEDGnDmvcEONa9vNOCiXDNjjv3EzJk=",
+  "Source": "API",
+  "BasePath": "_content/API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "API\\wwwroot",
+      "Source": "API",
+      "ContentRoot": "D:\\Floward Task\\Minapharm asset management system\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

@@ -1,0 +1,36 @@
+<div [formGroup]="form" class="form-group mrb-12">
+	<div [attr.for]="input.key" class="weight-400 text-dark size-4 mrb-2">{{input.label}}</div>
+	<div [ngSwitch]="input.controlType">
+		<input *ngSwitchCase="'textbox'" [formControlName]="input.key" [id]="input.key" [type]="input.type"
+		class="bg-gray7 border-0 border-bottom ptb-2 w-100" [class.is-invalid]="!isValid && (isTouched || isTouched)">
+		<select [id]="input.key" *ngSwitchCase="'dropdown'" [formControlName]="input.key" class="bg-gray7 border-0 border-bottom ptb-2 w-100" (change)="select($event)">
+			<option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
+		</select>
+		<ng-select [multiple]="true" [id]="input.key" *ngSwitchCase="'multidropdown'" [formControlName]="input.key" 
+		class="bg-gray7 border-0 border-bottom pt-2 w-100" [class.pb-2]="!isValid" [class.is-invalid]="!isValid && (isTouched || isTouched)">
+			<ng-option *ngFor="let opt of input.options" [value]="opt.key" [disabled]="opt.disabled">{{opt.value}}</ng-option>
+		</ng-select>
+		<div class="form-group" *ngSwitchCase="'uploadImage'">
+			<div class="input-group">
+				<input type="text" class="form-control bg-white" readonly>
+				<div class="input-group-btn">
+					<span class="overflow-hidden position-relative btn btn-secondary rounded-0 rounded-end">
+						<span class="upl" id="upload">Upload Logo</span>
+						<input [formControlName]="input.key" [id]="input.key" [type]="input.type" class="upload"
+							(change)="onFileChanged($event)" />
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="mb-3" *ngSwitchCase="'textarea'">
+			<textarea class="form-control" [formControlName]="input.key" [id]="input.key" rows="4"></textarea>
+		</div>
+	</div>
+	<div class="text-danger" *ngIf="!iti && control?.errors?.required &&  isTouched">{{input.label}} is required</div>
+	<div class="text-danger" *ngIf="!iti  && control?.errors?.pattern || control?.errors?.min && isTouched">{{input.label}} is invalid</div>
+
+	<div class="text-danger" *ngIf="iti">
+		<span *ngIf="!isValid && isTouched">{{input.label}} is required</span>
+		<span *ngIf="isValid && isTouched && !iti.isValidNumber()">{{input.label}} is invalid</span>
+	</div>
+</div>

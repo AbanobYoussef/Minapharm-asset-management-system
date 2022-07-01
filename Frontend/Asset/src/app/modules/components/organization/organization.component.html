@@ -1,0 +1,246 @@
+<div class="min-vh-100 px-3 py-5 d-flex flex-column justify-content-between">
+    <div>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3>Organizations</h3>
+            <div class="d-flex pe-4">
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importModal">
+                        <i class="pi pi-external-link me-2"></i>
+                        <span>Upload File</span>
+                    </button>
+                </div>
+                <div class="mx-2">
+                    <button type="button" class="btn btn-primary" (click)="exportexcel()">
+                        <i class="pi pi-external-link me-2"></i>
+                        <span>Export</span>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+                        <i class="pi pi-plus me-2"></i>
+                        <span>ADD</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="py-2 pe-4 overflow-auto">
+            <p-table [value]="organizations" id="excel-table" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>NamePrimary</th>
+                        <th>NameSecondary</th>
+                        <th>Country</th>
+                        <th>city</th>
+                        <th>Type</th>
+                        <th>parent</th>
+                        <th>company</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-org>
+                    <tr>
+                        <td>{{ org.namePrimary }}</td>
+                        <td>{{ org.nameSecondary }}</td>
+                        <td>{{ org.countryName }}</td>
+                        <td>{{ org.cityName }}</td>
+                        <td>{{ org.defaultDataName }}</td>
+                        <td>{{ org.parentName }}</td>
+                        <td>{{ org.companyName }}</td>
+                        <td class="d-flex align-items-center justify-content-center">
+                            <button type="button" class="btn btn-outline-secondary me-2"
+                                (click)="showEditOrganization(org)" data-bs-toggle="modal" data-bs-target="#editModal">
+                                <i class="pi pi-pencil"></i>
+                            </button>
+
+                            <button class="btn btn-outline-danger" title="delete" (click)="DeleteOrganization(org)">
+                                <i class="pi pi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================= -->
+<!-- Add Modal -->
+<div class="modal fade right" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog my-0 me-0">
+        <div class="modal-content min-vh-100">
+            <div class="modal-header justify-content-center border-0">
+                <h5 class="modal-title" id="exampleModalLabel">Add Organizations</h5>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                    <label class="mt-2 mb-1">Primary Name</label>
+                    <input class="form-control" type="text" pInputText [(ngModel)]="addOrganization.namePrimary">
+                </div>
+                <div class="">
+                    <label class="mt-2 mb-1">Secondary Name</label>
+                    <input class="form-control" type="text" pInputText [(ngModel)]="addOrganization.nameSecondary">
+                </div>
+                <div class="">
+                    <label class="mt-2 mb-1">Internal Address</label>
+                    <input class="form-control" type="text" pInputText [(ngModel)]="addOrganization.internalAddress">
+                </div>
+
+                <div class="">
+                    <label class="mt-2 mb-1">Country</label>
+                    <select class="form-select" [(ngModel)]="addOrganization.countryId"
+                        (change)="getCities(addOrganization.countryId)">
+                        <option disabled selected>Select your Country</option>
+                        <option *ngFor="let country of Countires" [ngValue]="country.id">
+                            {{country.englishName}}</option>
+                    </select>
+                </div>
+                <div class="">
+                    <label class="mt-2 mb-1">City</label>
+                    <select class="form-select" [(ngModel)]="addOrganization.cityId">
+                        <option disabled selected>Select your City</option>
+                        <option *ngFor="let type of CitiesFiltered" [ngValue]="type.id">{{type.englishName}}
+                        </option>
+                    </select>
+                </div>
+                <div class="">
+                    <label class="mt-2 mb-1">Location</label>
+                    <select class="form-select" [(ngModel)]="addOrganization.locationId">
+                        <option disabled selected>Select your Location</option>
+                        <option *ngFor="let item of Locations" [ngValue]="item.id">{{item.namePrimary}}
+                        </option>
+                    </select>
+                </div>
+                <div class="">
+                    <label class="mt-2 mb-1">Parent</label>
+                    <select class="form-select" [(ngModel)]="addOrganization.parentId">
+                        <option disabled selected>Select your Parent</option>
+                        <option *ngFor="let parent of Parents" [ngValue]="parent.id">{{parent.namePrimary}}
+                        </option>
+                    </select>
+                </div>
+                <div class="">
+                    <label class="mt-2 mb-1">Type</label>
+                    <select class="form-select" [(ngModel)]="addOrganization.defaultDataId">
+                        <option disabled selected>Select your Type</option>
+                        <option *ngFor="let type of Types" [ngValue]="type.id">{{type.namePrimary}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" #closeAdd data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="SaveOrganization(closeAdd)" class="btn btn-primary">Save </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================================== -->
+<!-- editModal -->
+<div class="modal fade come-from-modal right" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog my-0 me-0">
+        <div class="modal-content min-vh-100">
+            <div class="modal-header justify-content-center border-0">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Organizations</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="">
+                        <label class="mt-3 mb-2">Primary Name</label>
+                        <input class="form-control" type="text" pInputText [(ngModel)]="editOrganization.namePrimary">
+                    </div>
+                    <div class="">
+                        <label class="mt-3 mb-2">Secondary Name</label>
+                        <input class="form-control" type="text" pInputText [(ngModel)]="editOrganization.nameSecondary">
+                    </div>
+                    <div class="">
+                        <label class="mt-3 mb-2">Internal Address</label>
+                        <input class="form-control" type="text" pInputText
+                            [(ngModel)]="editOrganization.internalAddress">
+                    </div>
+
+                    <div class="">
+                        <label class="mt-3 mb-2">Country</label>
+                        <select class="form-select" [(ngModel)]="editOrganization.countryId"
+                            (change)="getCities(addOrganization.countryId)">
+                            <option disabled selected>Select your Country</option>
+                            <option *ngFor="let country of Countires" [ngValue]="country.id">{{country.englishName}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label class="mt-3 mb-2">City</label>
+                        <select class="form-select" [(ngModel)]="editOrganization.cityId">
+                            <option disabled selected>Select your City</option>
+                            <option *ngFor="let type of CitiesFiltered" [ngValue]="type.id">{{type.englishName}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label class="mt-3 mb-2">Location</label>
+                        <select class="form-select" [(ngModel)]="editOrganization.locationId">
+                            <option disabled selected>Select your Location</option>
+                            <option *ngFor="let item of Locations" [ngValue]="item.id">{{item.namePrimary}}</option>
+                        </select>
+                    </div>
+
+                    <div class="">
+                        <label class="mt-3 mb-2">Companies</label>
+                        <select class="form-select" [(ngModel)]="editOrganization.companyId">
+                            <option disabled selected>Select your Company</option>
+                            <option *ngFor="let item of Companies" [ngValue]="item.id">{{item.namePrimary}}</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label class="mt-3 mb-2">Parent</label>
+                        <select class="form-select" [(ngModel)]="editOrganization.parentId">
+                            <option disabled selected>Select your Parent</option>
+                            <option *ngFor="let parent of Parents" [ngValue]="parent.id">{{parent.namePrimary}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <label class="mt-3 mb-2">Type</label>
+                        <select class="form-select" [(ngModel)]="editOrganization.defaultDataId">
+                            <option disabled selected>Select your Type</option>
+                            <option *ngFor="let type of Types" [ngValue]="type.id">{{type.namePrimary}}</option>
+                        </select>
+                    </div>
+                </div>
+                <ng-template pTemplate="footer">
+                    <p-button icon="pi pi-check" label="Ok" styleClass="p-button-text">
+                    </p-button>
+                </ng-template>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" #closeEdit data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="EidtOrganization(closeEdit)" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================================== -->
+<!-- importModal -->
+<div class="modal fade come-from-modal right" id="importModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog my-0 me-0">
+        <div class="modal-content min-vh-100">
+            <div class="modal-header justify-content-center border-0">
+                <h5 class="modal-title" id="exampleModalLabel">Import Organizations</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="">
+                        <label class="mt-3 mb-2">Select File</label>
+                        <input class="form-control my-2" type="file" (change)="onFileSelected($event)">
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" #closeImport data-bs-dismiss="modal">Close</button>
+                    <button type="button" (click)="onUpload(closeImport)" class="btn btn-primary">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>

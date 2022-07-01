@@ -10,6 +10,7 @@ namespace DTOs
     public  class DeviceAssetDTO
     {
         public Guid Id { get; set; }
+        public string AssetName { get; set; }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
         public string Version { get; set; }

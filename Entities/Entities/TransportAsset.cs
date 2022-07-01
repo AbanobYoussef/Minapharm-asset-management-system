@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Entities
 {
-    public class TransportAsset
+    public class TransportAsset : Asset
     {
         public Guid Id { get; set; }
         public string Manufacturer { get; set; }

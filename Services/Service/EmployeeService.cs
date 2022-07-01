@@ -69,7 +69,9 @@ namespace Services.Service
 
         public ResultModel<EmployeeDTO> Insert(EmployeeDTO entity)
         {
-          var newemp=  _mapper.Map<Employee>(entity);
+
+            entity.Id = Guid.NewGuid();
+            var newemp=  _mapper.Map<Employee>(entity);
             var reopResult = _employee.Entity.Insert(newemp);
             var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
 

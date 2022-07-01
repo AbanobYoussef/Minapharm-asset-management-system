@@ -13,3 +13,18 @@ D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\ref\DT
 D:\POS\New folder\Minapharm-asset-management-system\DTOs\bin\Debug\net6.0\Entities.dll
 D:\POS\New folder\Minapharm-asset-management-system\DTOs\bin\Debug\net6.0\Entities.pdb
 D:\POS\New folder\Minapharm-asset-management-system\DTOs\obj\Debug\net6.0\DTOs.csproj.CopyComplete
+D:\Floward Task\Minapharm asset management system\DTOs\bin\Debug\net6.0\DTOs.deps.json
+D:\Floward Task\Minapharm asset management system\DTOs\bin\Debug\net6.0\DTOs.dll
+D:\Floward Task\Minapharm asset management system\DTOs\bin\Debug\net6.0\DTOs.pdb
+D:\Floward Task\Minapharm asset management system\DTOs\bin\Debug\net6.0\Entities.dll
+D:\Floward Task\Minapharm asset management system\DTOs\bin\Debug\net6.0\Entities.pdb
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.csproj.AssemblyReference.cache
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfoInputs.cache
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfo.cs
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.csproj.CoreCompileInputs.cache
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.csproj.CopyComplete
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.dll
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\refint\DTOs.dll
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\DTOs.pdb
+D:\Floward Task\Minapharm asset management system\DTOs\obj\Debug\net6.0\ref\DTOs.dll

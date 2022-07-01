@@ -1883,25 +1883,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Abanob\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\El_Amir Tech\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Services\\Services.csproj",
+      "projectUniqueName": "D:\\Floward Task\\Minapharm asset management system\\Services\\Services.csproj",
       "projectName": "Services",
-      "projectPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Services\\Services.csproj",
-      "packagesPath": "C:\\Users\\Abanob\\.nuget\\packages\\",
-      "outputPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Services\\obj\\",
+      "projectPath": "D:\\Floward Task\\Minapharm asset management system\\Services\\Services.csproj",
+      "packagesPath": "C:\\Users\\El_Amir Tech\\.nuget\\packages\\",
+      "outputPath": "D:\\Floward Task\\Minapharm asset management system\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Abanob\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\El_Amir Tech\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1914,11 +1917,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\POS\\New folder\\Minapharm-asset-management-system\\DTOs\\DTOs.csproj": {
-              "projectPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\DTOs\\DTOs.csproj"
+            "D:\\Floward Task\\Minapharm asset management system\\DTOs\\DTOs.csproj": {
+              "projectPath": "D:\\Floward Task\\Minapharm asset management system\\DTOs\\DTOs.csproj"
             },
-            "D:\\POS\\New folder\\Minapharm-asset-management-system\\Repositories\\Repositories.csproj": {
-              "projectPath": "D:\\POS\\New folder\\Minapharm-asset-management-system\\Repositories\\Repositories.csproj"
+            "D:\\Floward Task\\Minapharm asset management system\\Repositories\\Repositories.csproj": {
+              "projectPath": "D:\\Floward Task\\Minapharm asset management system\\Repositories\\Repositories.csproj"
             }
           }
         }
@@ -1953,7 +1956,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

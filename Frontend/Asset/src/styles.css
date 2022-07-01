@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+.p-sidebar-icon {
+    display: none !important;
+}
+
+body {
+    overflow-x: hidden !important;
+    background-color: #EEEEEE !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.modal.fade:not(.in).right .modal-dialog {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+
+.modal-dialog-slideout {
+    min-height: 100%;
+    margin: 0 0 0 auto;
+    background: #fff;
+}
+
+.modal.fade .modal-dialog.modal-dialog-slideout {
+    -webkit-transform: translate(100%, 0) scale(1);
+    transform: translate(100%, 0) scale(1);
+}
+
+.modal.fade.show .modal-dialog.modal-dialog-slideout {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+div.p-dropdown.p-component {
+    width: 100%;
+}
+
+/* 
+.modal-dialog,
+.come-from-right.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    transform: translate3d(0%, 0, 0);
+}
+
+.come-from-right.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 0;
+}
+
+.come-from-right.right,
+.modal-body {
+    padding: 15px 15px 80px;
+}
+
+.come-from-right.right.fade .modal-dialog {
+    right: 0px;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.come-from-right.right.fade.in .modal-dialog {
+    right: 0;
+} */
+
+.text-default {
+    color: rgb(55, 60, 158);
+}
+
+.bg-default {
+    background-color: rgb(55, 60, 158);
+}
+
+.p-datatable-wrapper {
+    border-radius: 10px;
+}
+
+.p-datatable-thead th {
+    background-color: white !important;
+}

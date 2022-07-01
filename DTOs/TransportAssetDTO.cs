@@ -10,6 +10,7 @@ namespace DTOs
     public   class TransportAssetDTO
     {
         public Guid Id { get; set; }
+        public string AssetName { get; set; }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
         public string Year { get; set; }

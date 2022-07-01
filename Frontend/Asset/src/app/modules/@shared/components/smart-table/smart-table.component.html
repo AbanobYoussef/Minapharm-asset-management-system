@@ -1,0 +1,77 @@
+<div class="d-flex flex-column body">
+	<div class="border-radius-5 box-shadow mrt-8 mrb-20">
+		<div class="table-responsive border-radius-5">
+			<table class="table table-white table-borderless mrb-0">
+				<thead class="bg-gray3">
+					<tr>
+						<th scope="col" class="text-dark size-6 weight-500 p-8 text-nowrap text-center"
+							*ngIf="settings?.checkbox">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+								[(ngModel)]="checkedAll" (change)="checkAll()">
+						</th>
+						<th scope="col" class="text-dark size-6 weight-500 p-8 text-nowrap text-center"
+							*ngFor="let column of settings?.columns;let columnIndex = index">{{ column.label }}
+						</th>
+						<th scope="col" class="text-dark size-6 weight-500 p-8 text-nowrap text-center">
+							Actions</th>
+					</tr>
+					<tr>
+						<ng-container *ngFor="let column of settings?.columns;let columnIndex = index">
+							<th scope="col" class="text-dark size-2 p-8" *ngIf="column?.search || column.filter">
+								<input type="text" class="form-control" style="width:120px;" id="{{ column?.name }}"
+									placeholder="Search" *ngIf="column.search"
+									[(ngModel)]="filterObj.search[column.name]" (input)="filter()">
+								<select class="form-select bg-dark border-dark text-white" id="{{ column?.name }}"
+									style="width:100px;" aria-label="Default select example"
+									[(ngModel)]="filterObj.filter[column.name]" (change)="filter()"
+									*ngIf="column.filter">
+									<option value=""></option>
+									<option *ngFor="let val of column.values" [value]="val">{{ val }}</option>
+								</select>
+							</th>
+						</ng-container>
+
+					</tr>
+				</thead>
+				<tbody class="bg-white">
+					<tr *ngFor="let user of currentData;let rowIndex = index;">
+						<td class="align-middle ptb-6 size-4 text-gray1 text-nowrap text-center"
+							*ngIf="settings?.checkbox"> <input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked" [(ngModel)]="user.checked"
+								(change)="checkedAll = false;select.emit(originalData)">
+						</td>
+						<td class="align-middle ptb-6 size-4 text-gray1 text-nowrap text-center"
+							*ngFor="let cell of settings?.columns;let cellIndex = index">
+							<span *ngIf="!cell?.valuePreparationValue && !cell?.htmlPreparationValue && !cell.type">{{ user[cell.name] }}</span>
+							<span
+								*ngIf="cell?.valuePreparationValue">{{cell.valuePreparationValue(user)}}</span>
+							<span *ngIf="cell?.htmlPreparationValue" [innerHTML]="_sanitizer.bypassSecurityTrustHtml(cell.htmlPreparationValue(user))"></span>
+							<div *ngIf="cell.type == 'toggle'"class="form-switch" >
+								<input class="form-check-input cell-check" type="checkbox"  role="switch" id="flexSwitchCheckDefault" [checked]="user[cell.name]" (change)="toggled($event,rowIndex)">
+							</div>
+
+						</td>
+						<td class="align-middle ptb-6 size-4 text-gray1 text-nowrap text-center"
+							*ngIf="settings?.actions?.edit">
+							<button *ngIf="settings?.actions"
+								class="btn btn-secondary border-radius-0 max-30 w-100 ptb-4 pse-3 border-radius-4"
+								[class.mre-6]="settings?.actions?.delete"
+								(click)="edit.emit({row:user,rowIndex:rowIndex,index:(curretIndex * rowsLength) + rowIndex})">
+								<img src="../../../../assets/icons/eye-fill.svg" alt="" class="max-20 w-100 d-flex">
+							</button>
+							<button *ngIf="settings?.actions?.delete"
+								class="btn btn-secondary border-radius-0 max-30 w-100 ptb-4 pse-3 border-radius-4"
+								(click)="delete.emit({row:user,rowIndex:rowIndex,index:(curretIndex * rowsLength) + rowIndex})">
+								<img src="../../../../assets/icons/trash.svg" alt="" class="max-20 w-100 d-flex">
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="bg-gray9 w-100 mt-auto">
+		<app-pagination [count]="tableData?.length" (rows)="rows($event)" (p)="paginate($event)"
+			[currentPageItems]="currentData?.length"></app-pagination>
+	</div>
+</div>

@@ -1,4 +1,5 @@
 ﻿using DTOs;
+using Entities.Hrlpers;
 using Microsoft.AspNetCore.Mvc;
 using Services.IService;
 
@@ -17,35 +18,35 @@ namespace API.Controllers
         }
         // GET: api/<TransportAssetController>
         [HttpGet]
-        public IEnumerable<TransportAssetDTO> Get()
+        public ResultModel<TransportAssetDTO> Get()
         {
             return _transportAssetDTO.GetALL();
         }
 
         // GET api/<TransportAssetController>/5
         [HttpGet("{id}")]
-        public TransportAssetDTO Get(int id)
+        public ResultModel<TransportAssetDTO> Get(int id)
         {
             return _transportAssetDTO.GetById(id);
         }
 
         // POST api/<TransportAssetController>
         [HttpPost]
-        public TransportAssetDTO Post([FromBody] TransportAssetDTO transportAsset)
+        public ResultModel<TransportAssetDTO> Post([FromBody] TransportAssetDTO transportAsset)
         {
             return _transportAssetDTO.Insert(transportAsset);
         }
 
         // PUT api/<TransportAssetController>/5
         [HttpPut]
-        public TransportAssetDTO Put([FromBody] TransportAssetDTO transportAsset)
+        public ResultModel<TransportAssetDTO> Put([FromBody] TransportAssetDTO transportAsset)
         {
             return _transportAssetDTO.Update(transportAsset);
         }
 
         // DELETE api/<TransportAssetController>/5
         [HttpDelete("{id}")]
-        public TransportAssetDTO Delete(int id)
+        public ResultModel<TransportAssetDTO> Delete(int id)
         {
             return _transportAssetDTO.Delete(id);
         }

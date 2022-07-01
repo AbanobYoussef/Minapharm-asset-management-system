@@ -1,0 +1,43 @@
+<div class="sidebar px-3 min-vh-100 py-5 d-flex flex-column justify-content-between">
+    <div>
+        <div>
+            <h3>Employee Details</h3>
+        </div>
+        <div class="mt-3">
+            <p-button [routerLink]="['/home/employee']" icon="pi pi-arrow-left" label="Back"></p-button>
+        </div>
+        <div class="py-3 pe-3">
+            <div class="card">
+                <p-tabView>
+                    <p-tabPanel header="Basic Data">
+                        <app-edit-employee [empId]="empId"></app-edit-employee>
+                    </p-tabPanel>
+                    <p-tabPanel header="Dependents">
+                        <app-employee-depents [empId]="empId"></app-employee-depents>
+                    </p-tabPanel>
+                    <p-tabPanel header="Addresses">
+                        <app-employee-address [empId]="empId"></app-employee-address>
+                    </p-tabPanel>
+                    <p-tabPanel header="Phones">
+                        <app-employee-phones [empId]="empId"></app-employee-phones>
+                    </p-tabPanel>
+                    <p-tabPanel header="Contract">
+                        <app-employee-contract [empId]="empId"></app-employee-contract>
+                    </p-tabPanel>
+                    <p-tabPanel header="Bank Account">
+                        <app-employee-bankaccount [empId]="empId"></app-employee-bankaccount>
+                    </p-tabPanel>
+                    <!-- <p-tabPanel header="Assignment Info">
+                        <app-employee-assignmentinfo [empId]="empId"></app-employee-assignmentinfo>
+                    </p-tabPanel> -->
+                    <p-tabPanel header="Payroll Info">
+                        <app-employee-payrolinfo [empId]="empId"></app-employee-payrolinfo>
+                    </p-tabPanel>
+                    <p-tabPanel header="Medical Ins">
+                        <app-employee-medical-ins [empId]="empId"></app-employee-medical-ins>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</div>

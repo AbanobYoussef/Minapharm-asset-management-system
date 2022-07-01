@@ -1,0 +1,52 @@
+<div class="d-flex align-items-center justify-content-between mt-10 w-100 pse-4">
+	<div class="d-flex align-items-center">
+		<div class="d-flex align-items-center mre-10 border-end">
+			<div class="text-dark size-4 max-120 w-100 text-nowrap mre-4 weight-500">Items per page:: </div>
+			<select class="form-select bg-gray9 border-gray9 ptb-2 pe-10 size-4 " aria-label="rows per page"
+				(change)="RowsPerPage($event)" [(ngModel)]="itemsPerPage">
+				<option selected value="5">5</option>
+				<option selected value="10">10</option>
+				<option value="20">20</option>
+				<option value="30">30</option>
+			</select>
+		</div>
+		<div class="page-item" style="width:140px">
+			<a class="page-link text-dark bg-gray9 border-0 size-4 text-dark ptb-2">
+				{{ (currentPage-1) * 1 * itemsPerPage + 1}}
+				-
+				{{ (currentPage-1) * 1 * itemsPerPage * 1 + currentPageItems * 1}}
+				of
+				{{count}}
+				<span class="size-4 text-dark">items</span>
+			</a>
+		</div>
+	</div>
+	<div class="d-flex align-items-center">
+		<div class="d-flex align-items-center border-start border-end">
+			<select class="form-select bg-gray9 border-gray9 ptb-2 pe-14 size-4 " aria-label="rows per page"
+				(change)="paginate($event)" [(ngModel)]="currentPage">
+				<option *ngFor="let page of pages();let i =index">{{ i + 1}}</option>
+			</select>
+
+			<div class="text-dark size-4 max-120 w-100 text-nowrap weight-500 mre-4">of
+				{{pages().length}} Pages </div>
+
+		</div>
+		<div class="pagination">
+			<div class="page-item">
+				<a class="page-link bg-gray9 ptb-2 border-0 border-end" href="javascript: void(0)" aria-label="Previous" (click)="prev()"
+					[class.unActive]="currentPage == 1">
+					<span aria-hidden="true">
+						<img src="../../../../assets/icons/page-left.svg" alt="">
+					</span>
+				</a>
+			</div>
+			<div class="page-item">
+				<a class="page-link  bg-gray9 ptb-2 border-0" href="javascript: void(0)" aria-label="Previous" (click)="next()"
+					[class.unActive]="currentPage == pages().length">
+					<img src="../../../../assets/icons/page-right.svg" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

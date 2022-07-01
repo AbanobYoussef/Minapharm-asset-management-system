@@ -1,0 +1,21 @@
+.table td{
+    border-bottom:1px solid #eee;
+}
+.item-image {
+    height: 50px;
+    object-fit: cover;
+}
+.caret {
+    right: 30px;
+    top:50%;
+}
+select {
+    background-image: url('../../../../assets/icons/caret-down.svg') !important;
+}
+.form-check-input{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+.body{
+    min-height: calc(100vh - 180px) !important;
+}

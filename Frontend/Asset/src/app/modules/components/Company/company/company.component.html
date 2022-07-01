@@ -1,0 +1,130 @@
+<div class="sidebar min-vh-100 py-5 d-flex flex-column justify-content-between">
+  <div>
+    <div>
+      <h3>Companys</h3>
+    </div>
+    <div class="row">
+      <div class="col-6"></div>
+      <div class="col-3">
+        <p-button (click)="onUpload()" icon="pi pi-external-link" label="Upload File"></p-button>
+        <input class="form-control" type="file" (change)="onFileSelected($event)">
+      </div>
+      <!-- <div class="col-3">
+        <p-button
+          (click)="showAddCompany()"
+          icon="pi pi-external-link"
+          label="ADD"
+        ></p-button>
+      </div> -->
+      <div class="col-3">
+        <p-button (click)="exportexcel()" icon="pi pi-external-link" label="Export"></p-button>
+      </div>
+    </div>
+    <div class="py-5 px-6">
+      <p-table responsiveLayout="scroll" [value]="companies" id="excel-table">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>NamePrimary</th>
+            <th>NameSecondary</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Phone2</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-type>
+          <tr>
+            <td>{{ type.namePrimary }}</td>
+            <td>{{ type.namesecondary }}</td>
+            <td>{{ type.email }}</td>
+            <td>{{ type.phone }}</td>
+            <td>{{ type.phone2 }}</td>
+            <td><i class="pi pi-pencil" (click)="showEditCompany(type)"></i>&nbsp;&nbsp;<i class="pi pi-trash"
+                (click)="deleteCompany(type)"></i></td>
+
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+  <p-dialog header="Add Company" [(visible)]="displayModalAddCompany" [modal]="true" [style]="{ width: '50vw' }"
+    [draggable]="false" [resizable]="false">
+    <div class="row">
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Primary Name</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="addCompany.namePrimary">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Secondary Name</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="addCompany.namesecondary">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Email</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="addCompany.email">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Phone</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="addCompany.phone">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">logo Url</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="addCompany.logoUrl">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Phone2</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="addCompany.phone2">
+      </div>
+    </div>
+    <div class="row">
+      <label class="mt-2 mb-1 fw-bold">Description</label>
+      <textarea InputTextarea [(ngModel)]="addCompany.description"></textarea>
+    </div>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="saveCompany()" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+
+
+
+  <p-dialog header="Eidt Company" [(visible)]="displayModalEidtCompany" [modal]="true" [style]="{ width: '50vw' }"
+    [draggable]="false" [resizable]="false">
+    <div class="row">
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Primary Name</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editCompany.namePrimary">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Secondary Name</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editCompany.namesecondary">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Email</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editCompany.email">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Phone</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editCompany.phone">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">logo Url</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editCompany.logoUrl">
+      </div>
+      <div class="col-6">
+        <label class="mt-2 mb-1 fw-bold">Phone2</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editCompany.phone2">
+      </div>
+      <div class="col-12">
+        <label class="mt-2 mb-1 fw-bold">Description</label>
+        <textarea class="form-control" InputTextarea [(ngModel)]="editCompany.description"></textarea>
+      </div>
+    </div>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="EidtCompany()" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+</div>

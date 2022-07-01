@@ -1,4 +1,5 @@
 ﻿using DTOs;
+using Entities.Hrlpers;
 using Microsoft.AspNetCore.Mvc;
 using Services.IService;
 
@@ -17,35 +18,35 @@ namespace API.Controllers
         }
         // GET: api/<EmployeeController>
         [HttpGet]
-        public IEnumerable<EmployeeDTO> Get()
+        public ResultModel<EmployeeDTO> Get()
         {
             return _employeeDTOService.GetALL();
         }
 
         // GET api/<EmployeeController>/5
         [HttpGet("{id}")]
-        public EmployeeDTO Get(int id)
+        public ResultModel<EmployeeDTO> Get(int id)
         {
             return _employeeDTOService.GetById(id);
         }
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public EmployeeDTO Post([FromBody] EmployeeDTO employee)
+        public ResultModel<EmployeeDTO> Post([FromBody] EmployeeDTO employee)
         {
             return _employeeDTOService.Insert(employee);
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut]
-        public EmployeeDTO Put([FromBody] EmployeeDTO employee)
+        public ResultModel<EmployeeDTO> Put([FromBody] EmployeeDTO employee)
         {
             return _employeeDTOService.Update(employee);
         }
 
         // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
-        public EmployeeDTO Delete(int id)
+        public ResultModel<EmployeeDTO> Delete(int id)
         {
             return _employeeDTOService.Delete(id);
         }

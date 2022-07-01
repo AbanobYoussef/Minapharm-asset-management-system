@@ -72,6 +72,7 @@ namespace Services.Service
 
         public ResultModel<DeviceAssetDTO> Insert(DeviceAssetDTO entity)
         {
+            entity.Id = Guid.NewGuid();
             var newemp = _mapper.Map<DeviceAsset>(entity);
             var reopResult = _deviceAsset.Entity.Insert(newemp);
 

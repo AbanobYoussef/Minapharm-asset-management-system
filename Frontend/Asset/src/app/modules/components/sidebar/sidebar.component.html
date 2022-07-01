@@ -1,0 +1,53 @@
+<div class="sidebar min-vh-100 py-2 d-flex flex-column justify-content-between">
+   <div>
+      <div class="px-3 d-flex justify-content-center align-items-center">
+         <img src="../../../../assets/images/logo-search-white.png" alt="">
+         <div class="flex-column d-xl-flex d-none">
+            <span class="text-white">Resources</span>
+            <span class="fw-bold text-white">Management System</span>
+         </div>
+      </div>
+      <div class="py-2 cursor-pointer mt-5" [routerLink]="['/home/company']" routerLinkActive="active">
+         <a class="nav-link text-white gallery d-flex justify-content-start align-items-center">
+            <i class=" pi pi-building me-2"></i> <span> Companies</span>
+         </a>
+      </div>
+      <div class="py-2 cursor-pointer" [routerLink]="['/home/organizations']" routerLinkActive="active">
+         <a class="nav-link text-white gallery d-flex justify-content-start align-items-center">
+            <i class=" pi pi-sitemap me-2"></i> <span> Organizations</span>
+         </a>
+      </div>
+      <div class="py-2 cursor-pointer" [routerLink]="['/home/employee']" routerLinkActive="active">
+         <a class="nav-link text-white gallery d-flex justify-content-start align-items-center">
+            <i class=" pi pi-users me-2"></i> <span> Employee</span>
+         </a>
+      </div>
+      <!-- <div class="py-2 cursor-pointer">
+         <a class="nav-link text-white gallery d-flex justify-content-start align-items-center" [routerLink]="['/home/addemployee']">
+         <i class=" pi pi-users me-2"></i> <span></span> Add Employee 
+         </a>
+      </div> -->
+      <div class="py-2 cursor-pointer" [routerLink]="['/home/contractType']" routerLinkActive="active">
+         <a class="nav-link text-white gallery d-flex justify-content-start align-items-center">
+            <i class=" pi pi-book me-2"></i> <span> Contract Types</span>
+         </a>
+      </div>
+
+
+      <div class="py-2 cursor-pointer" [routerLink]="['/home/jobs']" routerLinkActive="active">
+         <a class="nav-link text-white gallery d-flex justify-content-start align-items-center">
+            <i class=" pi pi-list me-2"></i> <span> Jobs</span>
+         </a>
+      </div>
+      <div class="py-2 cursor-pointer" [routerLink]="['/home/positions']" routerLinkActive="active">
+         <a class="nav-link text-white gallery d-flex justify-content-start align-items-center">
+            <i class=" pi pi-book me-2"></i> <span> Positions</span>
+         </a>
+      </div>
+
+   </div>
+   <div class="text-center h2">
+      <!-- <button pButton pRipple type="button" label="Back" [routerLink]="['/home']" class="p-button-rounded p-button-secondary"></button> -->
+      <!-- <i class=" pi pi-sign-out" style="font-size: 2rem; transform: scaleX(-1);"> </i> &nbsp;  -->
+   </div>
+</div>

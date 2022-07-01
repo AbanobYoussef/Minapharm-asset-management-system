@@ -1,0 +1,25 @@
+<div class="notify-check d-flex align-items-start box-shadow ptb-8" *ngIf="showSuccess">
+    <img src="../../../../assets/icons/notify-check.svg" alt=""  class="mre-8 pt-2">
+    <div class="d-flex flex-column align-items-start">
+         <div class="size-8 weight-600">{{notificationService?.title}}</div>
+         <div class="size-6 weight-400">{{notificationService?.subTitle}}</div>
+    </div>
+    <img src="../../../../assets/icons/dismiss.svg" alt="" class="ms-auto cursor-pointer pt-2 mre-2" (click)="showSuccess=false">
+</div>
+
+<div class="notify-error d-flex align-items-start box-shadow ptb-8" *ngIf="showError">
+    <img src="../../../../assets/icons/notify-error.svg" alt=""  class="mre-8 pt-2">
+    <div class="d-flex flex-column align-items-start">
+         <div class="size-8 weight-600">{{notificationService?.title}}</div>
+         <div class="size-6 weight-400">{{notificationService?.subTitle}}</div>
+    </div>
+    <img src="../../../../assets/icons/dismiss.svg" alt="" class="ms-auto cursor-pointer pt-2 mre-2" (click)="showError=false">
+</div>
+
+<div class="notify-info d-flex align-items-start box-shadow ptb-8" *ngIf="showInfo">
+    <div class="d-flex flex-column align-items-start">
+         <div class="size-8 weight-600">{{notificationService?.title}}</div>
+         <div class="size-6 weight-400">{{notificationService?.subTitle}}</div>
+    </div>
+    <img src="../../../../assets/icons/dismiss.svg" alt="" class="ms-auto cursor-pointer pt-2 mre-2" (click)="showError=false">
+</div>

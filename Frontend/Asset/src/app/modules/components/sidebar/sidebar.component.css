@@ -1,0 +1,53 @@
+.sidebar {
+    background-color: rgb(55, 60, 158);
+    padding-inline: 10px;
+}
+
+div.cursor-pointer {
+    background-color: rgb(42, 46, 136);
+    margin-block: 5px;
+    border-radius: 8px;
+}
+span.fw-bold{
+    font-size: 12px;
+}
+.active {
+    background-color: white !important;
+}
+
+.active a {
+    color: rgb(42, 46, 136) !important;
+}
+
+@media (max-width:1027px) {
+    div.border-bottom.py-2 a {
+        padding-inline: 10px !important;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:870px) {
+    div.border-bottom.py-2 a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:783px) {
+    div.border-bottom.py-2 a {
+        font-size: 10px;
+    }
+}
+
+@media (max-width:699px) {
+    div.cursor-pointer.py-2 a {
+        justify-content: center !important;
+    }
+
+    div.cursor-pointer.py-2 a i {
+        font-size: 22px !important;
+    }
+
+    div.cursor-pointer.py-2 a span {
+        display: none;
+    }
+}

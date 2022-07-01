@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+	<span [ngSwitch]="formType">
+		<div class="row" *ngSwitchCase="'grid'">
+			<div class="col-md-6" *ngFor="let input of inputs">
+				<app-app-input [input]="input" [form]="form" (changed)="selectValue($event)"></app-app-input>
+			</div>
+			<div class="col-12">
+				<button type="submit" class="btn btn-primary max-150 w-100" [disabled]="!form.valid">Save</button>
+			</div>
+		</div>
+		<div class="row" *ngSwitchCase="'block'">
+			<div class="col-md-12" *ngFor="let input of inputs">
+				<app-app-input [input]="input" [form]="form" (changed)="selectValue($event)"></app-app-input>
+			</div>
+			<div class="col-12 d-flex justify-content-end">
+				<button type="submit" class="btn btn-primary w-100" [style.max-width]="buttonWidth + 'px'" [disabled]="!form.valid">
+						{{ button }}
+				</button>
+			</div>
+		</div>
+	</span>
+</form>

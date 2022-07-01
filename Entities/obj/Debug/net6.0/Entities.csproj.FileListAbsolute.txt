@@ -12,3 +12,17 @@ D:\POS\New folder\Minapharm-asset-management-system\Entities\obj\Debug\net6.0\re
 D:\POS\New folder\Minapharm-asset-management-system\Entities\obj\Debug\net6.0\Entities.pdb
 D:\POS\New folder\Minapharm-asset-management-system\Entities\obj\Debug\net6.0\Entities.genruntimeconfig.cache
 D:\POS\New folder\Minapharm-asset-management-system\Entities\obj\Debug\net6.0\ref\Entities.dll
+D:\Floward Task\Minapharm asset management system\Entities\bin\Debug\net6.0\Entities.deps.json
+D:\Floward Task\Minapharm asset management system\Entities\bin\Debug\net6.0\Entities.runtimeconfig.json
+D:\Floward Task\Minapharm asset management system\Entities\bin\Debug\net6.0\Entities.dll
+D:\Floward Task\Minapharm asset management system\Entities\bin\Debug\net6.0\Entities.pdb
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.AssemblyInfo.cs
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.csproj.CoreCompileInputs.cache
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.dll
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\refint\Entities.dll
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.pdb
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\Entities.genruntimeconfig.cache
+D:\Floward Task\Minapharm asset management system\Entities\obj\Debug\net6.0\ref\Entities.dll
