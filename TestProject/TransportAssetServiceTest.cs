@@ -2,6 +2,7 @@ using AutoMapper;
 using Entities.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Repositories.IGenericRepository;
+using Repositories.UnitOfWork;
 using Services.Service;
 
 namespace TestProject
@@ -16,6 +17,8 @@ namespace TestProject
         public TransportAssetServiceTest()
         {
             _transportAsset = new UnitOfWork<TransportAsset>();
+
+            _mapper=new 
         }
         [TestMethod]
         public void Delete()

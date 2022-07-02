@@ -77,6 +77,7 @@ this.addasset.model=''
 this.addasset.version =''
 this.addasset.processor =''
 this.addasset.installesMomory =''
+this.addasset.ownerId =''
 
 }
 
@@ -92,6 +93,7 @@ this.editasset.model=''
 this.editasset.version =''
 this.editasset.processor =''
 this.editasset.installesMomory =''
+this.editasset.ownerId =''
 }
 
 }
