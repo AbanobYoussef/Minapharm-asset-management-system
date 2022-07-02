@@ -1,6 +1,0 @@
-D:\Floward Task\Minapharm asset management system\TestProject\bin\Debug\net6.0\CoverletSourceRootsMapping
-D:\Floward Task\Minapharm asset management system\TestProject\obj\Debug\net6.0\TestProject.csproj.AssemblyReference.cache
-D:\Floward Task\Minapharm asset management system\TestProject\obj\Debug\net6.0\TestProject.GeneratedMSBuildEditorConfig.editorconfig
-D:\Floward Task\Minapharm asset management system\TestProject\obj\Debug\net6.0\TestProject.AssemblyInfoInputs.cache
-D:\Floward Task\Minapharm asset management system\TestProject\obj\Debug\net6.0\TestProject.AssemblyInfo.cs
-D:\Floward Task\Minapharm asset management system\TestProject\obj\Debug\net6.0\TestProject.csproj.CoreCompileInputs.cache
