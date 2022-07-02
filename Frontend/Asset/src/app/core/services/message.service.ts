@@ -1,17 +1,17 @@
+import { TranslationService } from './translation.service';
 import { Injectable } from '@angular/core';
 import {
     ToastNotificationInitializer,
     AppearanceAnimation,
     DisappearanceAnimation, DialogLayoutDisplay, ConfirmBoxInitializer
 } from '@costlydeveloper/ngx-awesome-popup';
-import { TranslationService } from './translation.service';
 
 @Injectable({
     providedIn: 'root'
-})
+}) 
 export class MessageService {
 
-    constructor(private translate: TranslationService,) {
+    constructor() { 
 
     }
 

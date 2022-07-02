@@ -22,9 +22,10 @@ namespace Services.Service
             _employee=employee;
             _mapper=mapper;
         }
-        public ResultModel<EmployeeDTO> Delete(object id)
+        public async Task<ResultModel<EmployeeDTO>> Delete(object id)
         {
             var reopResult = _employee.Entity.Delete(id);
+           await _employee.Save();
             var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
 
 
@@ -67,12 +68,14 @@ namespace Services.Service
             return result;
         }
 
-        public ResultModel<EmployeeDTO> Insert(EmployeeDTO entity)
+        public async Task<ResultModel<EmployeeDTO>> Insert(EmployeeDTO entity)
         {
-
+            
             entity.Id = Guid.NewGuid();
-            var newemp=  _mapper.Map<Employee>(entity);
+          var newemp=  _mapper.Map<Employee>(entity);
             var reopResult = _employee.Entity.Insert(newemp);
+
+           await _employee.Save();
             var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
 
             ResultModel<EmployeeDTO> result = new ResultModel<EmployeeDTO>()
@@ -84,10 +87,11 @@ namespace Services.Service
             return result;
         }
 
-        public ResultModel<EmployeeDTO> Update(EmployeeDTO entity)
+        public async Task<ResultModel<EmployeeDTO>> Update(EmployeeDTO entity)
         {
             var newemp = _mapper.Map<Employee>(entity);
 
+            await _employee.Save();
             var reopResult = _employee.Entity.Update(newemp);
             var DTO = _mapper.Map<EmployeeDTO>(reopResult.Result);
 

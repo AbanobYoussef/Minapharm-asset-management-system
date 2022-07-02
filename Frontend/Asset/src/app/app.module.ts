@@ -6,26 +6,14 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConfigLoader, ConfigsLoaderService } from './config/config-loader.service';
-import { HttpLoaderFactory } from './core/services/translation.service';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './modules/pages/login/login.component';
-import { HomeComponent } from './modules/pages/home/home.component';
-import { SidebarComponent } from './modules/components/sidebar/sidebar.component';
-import { EmployeePageComponent } from './modules/components/employee-page/employee-page.component';
-
-import { EmployeeService } from './core/services/employee.service';
-import { CityService } from './core/services/city.service';
-import { CountryService } from './core/services/country.service';
-import { LocationService } from './core/services/location.service';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { DialogModule } from 'primeng/dialog';
 import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { ButtonModule } from 'primeng/button';
-import { ContractTypeComponent } from './modules/components/contract-type/contract-type.component';
-import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import {
     NgxAwesomePopupModule,
@@ -34,67 +22,27 @@ import {
     ToastNotificationConfigModule
 } from '@costlydeveloper/ngx-awesome-popup';
 import { TableModule } from 'primeng/table';
-import { CompanyComponent } from './modules/components/Company/company/company.component';
-import { OrganizationComponent } from './modules/components/organization/organization.component';
-import { JobsComponent } from './modules/components/jobs/jobs.component';
-import { PositionsComponent } from './modules/components/positions/positions.component';
 import { DropdownModule } from 'primeng/dropdown';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { TabViewModule } from 'primeng/tabview';
-import { EmployeeDepentsComponent } from './modules/components/employee-depents/employee-dependents.component';
-import { EmployeePhonesComponent } from './modules/components/employee-phones/employee-phones.component';
-import { EditEmployeeComponent } from './modules/components/edit-employee/edit-employee.component';
-import { EmployeeAddressComponent } from './modules/components/employee-address/employee-address.component';
-import { EmployeeTabsComponent } from './modules/components/employee-tabs/employee-tabs.component';
-import { EmployeeContractComponent } from './modules/components/employee-contract/employee-contract.component';
-import { RegisterComponent } from './modules/pages/register/register/register.component';
-import { ForgetpasswordComponent } from './modules/pages/forgetpassword/forgetpassword.component';
-import { ResetpasswordComponent } from './modules/pages/resetpassword/resetpassword.component';
-import { EmployeeBankaccountComponent } from './modules/components/employee-bankaccount/employee-bankaccount.component';
-import { EmployeeAssignmentinfoComponent } from './modules/components/employee-assignmentinfo/employee-assignmentinfo.component';
-import { EmployeePayrolinfoComponent } from './modules/components/employee-payrolinfo/employee-payrolinfo.component';
-import { TestComponent } from './modules/pages/test/test.component';
-import { EmployeeMedicalInsComponent } from './modules/components/employee-medical-ins/employee-medical-ins.component';
-import { UserCompanyComponent } from './modules/components/user-company/user-company.component';
-import { NotpermitedComponent } from './modules/components/notpermited/notpermited.component';
-import { SharedModule } from 'primeng/api';
-import { CoreModule } from './modules/@core/core.module';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
 import { MatDialog } from '@angular/material/dialog';
+import { EmployeeComponent } from './modules/components/employee/employee.component';
+import { EmploeeService } from './core/services/Emploee.service';
+import { TranslationService } from './core/services/translation.service';
+import { ConfigsLoaderService } from './config/config-loader.service';
+import { MessageService } from 'primeng/api';
+import { TranspoetAssetComponent } from './modules/components/transpoet-asset/transpoet-asset.component';
+import { DeviceAssetComponent } from './modules/components/device-asset/device-asset.component';
+import { SidebarComponent } from './modules/components/sidebar/sidebar.component';
 
-export function tokenGetter() {
-    return localStorage.getItem("token");
-}
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent,
-    SidebarComponent,
-    EmployeePageComponent,
-    ContractTypeComponent,
-    CompanyComponent,
-    OrganizationComponent,
-    JobsComponent,
-    PositionsComponent,
-    EmployeeDepentsComponent,
-    EmployeePhonesComponent,
-    EditEmployeeComponent,
-    EmployeeAddressComponent,
-    EmployeeTabsComponent,
-    EmployeeContractComponent,
-    RegisterComponent,
-    ForgetpasswordComponent,
-    ResetpasswordComponent,
-    TestComponent,
-    EmployeeBankaccountComponent,
-    EmployeeAssignmentinfoComponent,
-    EmployeePayrolinfoComponent,
-    EmployeeMedicalInsComponent,
-    UserCompanyComponent,
-    NotpermitedComponent
+    EmployeeComponent,
+    TranspoetAssetComponent,
+    DeviceAssetComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -107,51 +55,25 @@ export function tokenGetter() {
     CalendarModule,
     DialogModule,
     ButtonModule,
-    TabViewModule,
-    TabMenuModule,
     TableModule,
-    InputTextModule,
-    NgxAwesomePopupModule.forRoot(), 
-    DialogConfigModule.forRoot(),
-    ConfirmBoxConfigModule.forRoot(),
-    ToastNotificationConfigModule.forRoot(),
     DropdownModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    // JwtModule.forRoot({
-    //   config:{
-    //     tokenGetter:tokenGetter,
-    //     allowedDomains:[ConfigLoader.baseUrl.replace("https://","").replace("/","")],
-    //     disallowedRoutes:[]
-    //   }
-    // }),
+    ToastNotificationConfigModule.forRoot(),
   ],
   providers: [
     ConfigsLoaderService,
-    EmployeeService,
-    CountryService,
-    CityService,
-    LocationService,
+    EmploeeService,
+    TranslationService,
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializerFactory,
       multi: true,
       deps: [ConfigsLoaderService],
     },
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-
-
 export function appInitializerFactory(configsLoaderService: ConfigsLoaderService) {
-    return () => configsLoaderService.loadConfigs();
+  return () => configsLoaderService.loadConfigs();
 }

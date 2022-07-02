@@ -28,9 +28,7 @@ export class ConfigsLoaderService {
 
 export const ConfigLoader = {
     production: false,
-    // baseUrl:'https://localhost:44395/',
      baseUrl:'https://localhost:7140/',
-   // baseUrl: 'https://hrapi.gtwit.net/',
     recaptchaSiteKey: ''
 }
 

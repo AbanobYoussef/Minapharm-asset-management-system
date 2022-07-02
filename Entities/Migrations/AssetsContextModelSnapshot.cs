@@ -32,13 +32,6 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EmployeeId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("EmployeeId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("InstallesMomory")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -51,6 +44,9 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OwnerId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Processor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -60,8 +56,6 @@ namespace Entities.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EmployeeId1");
 
                     b.ToTable("DeviceAssets");
                 });
@@ -73,11 +67,9 @@ namespace Entities.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -95,12 +87,8 @@ namespace Entities.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EmployeeId")
-                        .IsRequired()
+                    b.Property<string>("DriverId")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("EmployeeId1")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
@@ -116,31 +104,7 @@ namespace Entities.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId1");
-
                     b.ToTable("TransportAssets");
-                });
-
-            modelBuilder.Entity("Entities.Entities.DeviceAsset", b =>
-                {
-                    b.HasOne("Entities.Entities.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("Entities.Entities.TransportAsset", b =>
-                {
-                    b.HasOne("Entities.Entities.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
                 });
 #pragma warning restore 612, 618
         }

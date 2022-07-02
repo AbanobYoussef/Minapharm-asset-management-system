@@ -1,0 +1,113 @@
+<div class="sidebar min-vh-100 py-5 d-flex flex-column justify-content-between">
+    
+    <div>
+      <h3>Transpoet Assets</h3>
+    </div>
+    <div class="row">
+      <div class="col-6"></div>
+      <div class="col-3">
+        <p-button
+        (click)="showAdd()"
+          icon="pi pi-external-link"
+          label="ADD"
+        ></p-button>
+ </div>
+
+
+<div class="py-5 px-6">
+  <p-table responsiveLayout="scroll" [value]="assets" id="excel-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Asset Name</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Driver Name</th>
+        <th></th>
+      </tr>
+    </ng-template>
+     <ng-template pTemplate="body" let-type>
+      <tr>
+        <td>{{ type?.assetName }}</td>
+        <td>{{ type?.manufacturer }}</td>
+        <td>{{ type?.model }}</td>
+        <td>{{ type?.year }}</td>
+        <td>{{ getAllEmploeeName(type?.driverId) }}</td>
+        <td><i class="pi pi-pencil" (click)="showEdit(type)"></i>&nbsp;&nbsp;<i class="pi pi-trash"
+            (click)="delete(type)"></i></td>
+
+      </tr>
+    </ng-template> 
+  </p-table>
+</div>
+</div>
+
+<p-dialog header="Add Transpoet" [(visible)]="displayModalAdd" [modal]="true" [style]="{ width: '50vw' }"
+[draggable]="false" [resizable]="false">
+<div class="row">
+  <div class="col-6">
+    <label class="mt-2 mb-1 fw-bold">Asset Name</label>
+    <input class="form-control" type="text" pInputText [(ngModel)]="addasset.assetName">
+  </div>
+  <div class="col-6">
+    <label class="mt-2 mb-1 fw-bold">Manufacturer</label>
+    <input class="form-control" type="text" pInputText [(ngModel)]="addasset.manufacturer">
+  </div>
+</div>
+<div class="row">
+    <div class="col-4">
+      <label class="mt-2 mb-1 fw-bold">Model</label>
+      <input class="form-control" type="text" pInputText [(ngModel)]="addasset.model">
+    </div>
+    <div class="col-4">
+      <label class="mt-2 mb-1 fw-bold">Year</label>
+      <input class="form-control" type="text" pInputText [(ngModel)]="addasset.year">
+    </div>
+    <div class="col-4">
+        <label class="mt-2 mb-1 fw-bold">Empolyee</label>
+        <select class="form-control" [(ngModel)]="addasset.driverId">
+            <option *ngFor="let item of emploees" [value]="item.id">{{item.name}}</option>
+        </select>
+    </div>
+  </div>
+<ng-template pTemplate="footer">
+  <p-button icon="pi pi-check" (click)="save()" label="Ok" styleClass="p-button-text"></p-button>
+</ng-template>
+</p-dialog>  
+
+
+
+<p-dialog header="Add Transpoet" [(visible)]="displayModalEidt" [modal]="true" [style]="{ width: '50vw' }"
+[draggable]="false" [resizable]="false">
+<div class="row">
+    <div class="col-6">
+      <label class="mt-2 mb-1 fw-bold">Asset Name</label>
+      <input class="form-control" type="text" pInputText [(ngModel)]="editasset.assetName">
+    </div>
+    <div class="col-6">
+      <label class="mt-2 mb-1 fw-bold">Manufacturer</label>
+      <input class="form-control" type="text" pInputText [(ngModel)]="editasset.manufacturer">
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-4">
+        <label class="mt-2 mb-1 fw-bold">Model</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editasset.model">
+      </div>
+      <div class="col-4">
+        <label class="mt-2 mb-1 fw-bold">Year</label>
+        <input class="form-control" type="text" pInputText [(ngModel)]="editasset.year">
+      </div>
+      <div class="col-4">
+        <label class="mt-2 mb-1 fw-bold">Empolyee</label>
+        <select class="form-control" [(ngModel)]="editasset.driverId">
+            <option *ngFor="let item of emploees" [value]="item.id">{{item.name}}</option>
+        </select>
+        </div>
+    </div>
+<ng-template pTemplate="footer">
+  <p-button icon="pi pi-check" (click)="edit()" label="Edit" styleClass="p-button-text"></p-button>
+</ng-template>
+</p-dialog> 
+
+</div>

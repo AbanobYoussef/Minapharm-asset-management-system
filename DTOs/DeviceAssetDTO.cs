@@ -18,7 +18,6 @@ namespace DTOs
         public string InstallesMomory { get; set; }
 
 
-        public string EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public string? OwnerId { get; set; }
     }
 }

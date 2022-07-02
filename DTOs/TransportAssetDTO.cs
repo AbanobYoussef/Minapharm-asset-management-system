@@ -16,7 +16,6 @@ namespace DTOs
         public string Year { get; set; }
 
 
-        public string EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public string? DriverId { get; set; }
     }
 }

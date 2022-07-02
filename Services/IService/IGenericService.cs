@@ -13,8 +13,8 @@ namespace Services.IService
 
         ResultModel<T> GetById(object id);
 
-        ResultModel<T> Insert(T entity);
-        ResultModel<T> Update(T entity);
-        ResultModel<T> Delete(object id);
+        Task<ResultModel<T>> Insert(T entity);
+        Task<ResultModel<T>> Update(T entity);
+        Task<ResultModel<T>> Delete(object id);
     }
 }

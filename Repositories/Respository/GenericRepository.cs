@@ -28,6 +28,7 @@ namespace Repositories.Respository
             try
             {
                 result.Result = GetById(id).Result;
+                table.Remove(result.Result);
                 result.Message = "Entity deleted Successfully";
             }
             catch (Exception e)

@@ -18,7 +18,7 @@ namespace API.Controllers
         }
         // GET: api/<TransportAssetController>
         [HttpGet]
-        public ResultModel<TransportAssetDTO> Get()
+        public ResultModel<TransportAssetDTO>  Get()
         {
             return _transportAssetDTO.GetALL();
         }
@@ -32,23 +32,24 @@ namespace API.Controllers
 
         // POST api/<TransportAssetController>
         [HttpPost]
-        public ResultModel<TransportAssetDTO> Post([FromBody] TransportAssetDTO transportAsset)
+        public Task<ResultModel<TransportAssetDTO>> Post([FromBody] TransportAssetDTO transportAsset)
         {
             return _transportAssetDTO.Insert(transportAsset);
         }
 
-        // PUT api/<TransportAssetController>/5
-        [HttpPut]
-        public ResultModel<TransportAssetDTO> Put([FromBody] TransportAssetDTO transportAsset)
+        [Route("edit")]
+        [HttpPost]
+        public Task<ResultModel<TransportAssetDTO>> Put([FromBody] TransportAssetDTO transportAsset)
         {
             return _transportAssetDTO.Update(transportAsset);
         }
 
         // DELETE api/<TransportAssetController>/5
-        [HttpDelete("{id}")]
-        public ResultModel<TransportAssetDTO> Delete(int id)
+        [Route("delete")]
+        [HttpPost]
+        public Task<ResultModel<TransportAssetDTO>>  Delete([FromBody] TransportAssetDTO transportAsset)
         {
-            return _transportAssetDTO.Delete(id);
+            return _transportAssetDTO.Delete(transportAsset.Id);
         }
     }
 }

@@ -1,9 +1,0 @@
-#table-desc  td {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 15ch;
-    white-space: wrap;
-    /* display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; */
-}

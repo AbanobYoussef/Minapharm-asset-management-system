@@ -22,9 +22,11 @@ namespace Services.Service
             _transportAsset = transportAsset;
             _mapper = mapper;
         }
-        public ResultModel<TransportAssetDTO> Delete(object id)
+        public async Task<ResultModel<TransportAssetDTO>> Delete(object id)
         {
             var reopResult = _transportAsset.Entity.Delete(id);
+
+            await _transportAsset.Save();
             var DTO = _mapper.Map<TransportAssetDTO>(reopResult.Result);
 
 
@@ -41,6 +43,7 @@ namespace Services.Service
         {
 
             var reopResult = _transportAsset.Entity.GetALL();
+
             var DTO = _mapper.Map<IEnumerable<TransportAssetDTO>>(reopResult.ResultList);
 
 
@@ -68,13 +71,13 @@ namespace Services.Service
             return result;
         }
 
-        public ResultModel<TransportAssetDTO> Insert(TransportAssetDTO entity)
+        public async Task<ResultModel<TransportAssetDTO>> Insert(TransportAssetDTO entity)
         {
-
+            
             entity.Id = Guid.NewGuid();
             var newemp = _mapper.Map<TransportAsset>(entity);
-
             var reopResult = _transportAsset.Entity.Insert(newemp);
+            await _transportAsset.Save();
             var DTO = _mapper.Map<TransportAssetDTO>(reopResult.Result);
 
 
@@ -87,11 +90,12 @@ namespace Services.Service
             return result;
         }
 
-        public ResultModel<TransportAssetDTO> Update(TransportAssetDTO entity)
+        public async Task<ResultModel<TransportAssetDTO>> Update(TransportAssetDTO entity)
         {
             var newemp = _mapper.Map<TransportAsset>(entity);
 
             var reopResult = _transportAsset.Entity.Update(newemp);
+            await _transportAsset.Save();
             var DTO = _mapper.Map<TransportAssetDTO>(reopResult.Result);
 
 

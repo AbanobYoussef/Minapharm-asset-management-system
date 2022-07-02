@@ -8,13 +8,8 @@ namespace Entities.Entities
 {
     public class TransportAsset : Asset
     {
-        public Guid Id { get; set; }
-        public string Manufacturer { get; set; }
-        public string Model  { get; set; }
         public string Year { get; set; }
 
-
-        public string EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public string? DriverId { get; set; }
     }
 }

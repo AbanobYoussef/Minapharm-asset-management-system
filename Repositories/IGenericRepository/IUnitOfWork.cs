@@ -10,6 +10,6 @@ namespace Repositories.IGenericRepository
     {
         IGenericRepository<T> Entity { get; }
 
-        void Save();
+        Task Save();
     }
 }

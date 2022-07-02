@@ -23,12 +23,7 @@ export class HttpService {
     };
     constructor(handler: HttpBackend,
         private router: Router,
-        public messagesService: MessageService,
-        public translateService: TranslateService,
-        // private SpinnerService: NgxSpinnerService
-        // private toastController:ToastController,
-        // public loadingCtrl: LoadingController,
-        //private translate:TranslationService,
+        public messagesService: MessageService
     ) {
         this._httpClient = new HttpClient(handler);
     }
@@ -55,10 +50,7 @@ export class HttpService {
 
                     this.navigateToLogin();
                 }
-                else {
-                    alert(this.translateService.get("http request failed"));
-                    // this.presentToastWithOptions(this.translate.get("http request failed"));
-                }
+                else {}
                 return of();
             }));
 
@@ -79,7 +71,6 @@ export class HttpService {
                     this.navigateToLogin();
                 }
                 else {
-                    alert(this.translateService.get("http request failed"));
                 }
                 return of();
             }));
@@ -159,7 +150,6 @@ export class HttpService {
                         this.navigateToLogin();
                     }
                     else {
-                        alert(this.translateService.get("http request failed"));
                     }
                     return of();
                 }));

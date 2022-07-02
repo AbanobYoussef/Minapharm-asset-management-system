@@ -22,9 +22,10 @@ namespace Services.Service
             _deviceAsset = deviceAsset;
             _mapper = mapper;
         }
-        public ResultModel<DeviceAssetDTO> Delete(object id)
+        public async Task<ResultModel<DeviceAssetDTO>> Delete(object id)
         {
             var reopResult = _deviceAsset.Entity.Delete(id);
+            await _deviceAsset.Save();
             var DTO= _mapper.Map<DeviceAssetDTO>(reopResult.Result);
 
 
@@ -70,12 +71,14 @@ namespace Services.Service
             return result;
         }
 
-        public ResultModel<DeviceAssetDTO> Insert(DeviceAssetDTO entity)
+        public async Task<ResultModel<DeviceAssetDTO>> Insert(DeviceAssetDTO entity)
         {
             entity.Id = Guid.NewGuid();
             var newemp = _mapper.Map<DeviceAsset>(entity);
             var reopResult = _deviceAsset.Entity.Insert(newemp);
+            await _deviceAsset.Save();
 
+            await _deviceAsset.Save();
             var DTO = _mapper.Map<DeviceAssetDTO>(reopResult.Result);
 
             ResultModel<DeviceAssetDTO> result = new ResultModel<DeviceAssetDTO>()
@@ -88,11 +91,12 @@ namespace Services.Service
             return result;
         }
 
-        public ResultModel<DeviceAssetDTO> Update(DeviceAssetDTO entity)
+        public async Task<ResultModel<DeviceAssetDTO>> Update(DeviceAssetDTO entity)
         {
             var newemp = _mapper.Map<DeviceAsset>(entity);
             var reopResult = _deviceAsset.Entity.Update(newemp);
 
+            await _deviceAsset.Save();
             var DTO = _mapper.Map<DeviceAssetDTO>(reopResult.Result);
 
             ResultModel<DeviceAssetDTO> result = new ResultModel<DeviceAssetDTO>()

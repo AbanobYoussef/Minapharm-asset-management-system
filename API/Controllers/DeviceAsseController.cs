@@ -18,7 +18,7 @@ namespace API.Controllers
         }
         // GET: api/<deviceAsseController>
         [HttpGet]
-        public ResultModel<DeviceAssetDTO> Get()
+        public ResultModel<DeviceAssetDTO>  Get()
         {
             return _deviceAsseService.GetALL();
         }
@@ -32,23 +32,25 @@ namespace API.Controllers
 
         // POST api/<deviceAsseController>
         [HttpPost]
-        public ResultModel<DeviceAssetDTO> Post([FromBody] DeviceAssetDTO deviceAsset)
+        public Task<ResultModel<DeviceAssetDTO>> Post([FromBody] DeviceAssetDTO deviceAsset)
         {
             return _deviceAsseService.Insert(deviceAsset);
         }
 
-        // PUT api/<deviceAsseController>/5
-        [HttpPut]
-        public ResultModel<DeviceAssetDTO> Put([FromBody] DeviceAssetDTO deviceAsset)
+
+        [Route("edit")]
+        [HttpPost]
+        public  Task<ResultModel<DeviceAssetDTO>> Put([FromBody] DeviceAssetDTO deviceAsset)
         {
             return _deviceAsseService.Update(deviceAsset);
         }
 
-        // DELETE api/<deviceAsseController>/5
-        [HttpDelete("{id}")]
-        public ResultModel<DeviceAssetDTO> Delete(int id)
+
+        [Route("delete")]
+        [HttpPost]
+        public Task<ResultModel<DeviceAssetDTO>> Delete([FromBody] DeviceAssetDTO deviceAsset)
         {
-            return _deviceAsseService.Delete(id);
+            return _deviceAsseService.Delete(deviceAsset.Id);
         }
     }
 }

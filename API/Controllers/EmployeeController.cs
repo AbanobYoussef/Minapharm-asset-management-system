@@ -20,7 +20,8 @@ namespace API.Controllers
         [HttpGet]
         public ResultModel<EmployeeDTO> Get()
         {
-            return _employeeDTOService.GetALL();
+            var x= _employeeDTOService.GetALL();
+            return x;
         }
 
         // GET api/<EmployeeController>/5
@@ -32,23 +33,25 @@ namespace API.Controllers
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public ResultModel<EmployeeDTO> Post([FromBody] EmployeeDTO employee)
+        public Task<ResultModel<EmployeeDTO>> Post([FromBody] EmployeeDTO employee)
         {
             return _employeeDTOService.Insert(employee);
         }
 
         // PUT api/<EmployeeController>/5
-        [HttpPut]
-        public ResultModel<EmployeeDTO> Put([FromBody] EmployeeDTO employee)
+
+        [Route("edit")]
+        [HttpPost]
+        public Task<ResultModel<EmployeeDTO>>  Edit([FromBody] EmployeeDTO employee)
         {
             return _employeeDTOService.Update(employee);
         }
 
-        // DELETE api/<EmployeeController>/5
-        [HttpDelete("{id}")]
-        public ResultModel<EmployeeDTO> Delete(int id)
+        [Route("delete")]
+        [HttpPost]
+        public Task<ResultModel<EmployeeDTO>> Delete([FromBody] EmployeeDTO employee)
         {
-            return _employeeDTOService.Delete(id);
+            return _employeeDTOService.Delete(employee.Id);
         }
     }
 }
