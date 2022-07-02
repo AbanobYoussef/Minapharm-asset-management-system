@@ -141,3 +141,4 @@ D:\Floward Task\Minapharm asset management system\API\obj\Debug\net6.0\API.cspro
 D:\Floward Task\Minapharm asset management system\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 D:\Floward Task\Minapharm asset management system\API\obj\Debug\net6.0\ref\API.dll
 D:\Floward Task\Minapharm asset management system\API\bin\Debug\net6.0\API.staticwebassets.runtime.json
+D:\Floward Task\Minapharm asset management system\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cs
