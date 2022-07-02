@@ -18,7 +18,7 @@ namespace API.Controllers
         }
         // GET: api/<TransportAssetController>
         [HttpGet]
-        public ResultModel<TransportAssetDTO>  Get()
+        public ResultModel<TransportAssetDTO> Get()
         {
             return _transportAssetDTO.GetALL();
         }
